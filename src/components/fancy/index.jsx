@@ -7,6 +7,10 @@ import { math } from '../../App.jsx';
 
 const calcValue = (fromAmount, listPrices, fromSelected, toSelected) => {
 	try {
+		if (fromSelected.currency === toSelected.currency) {
+			return fromAmount;
+		}
+
 		// find from prices
 		const fromPrice = listPrices.find((price) => price.currency === fromSelected.currency)?.price;
 
